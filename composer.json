@@ -1,0 +1,40 @@
+{
+    "name": "firstphp/dingtalk",
+    "description": "钉钉开发组件 for hyperf",
+    "type": "library",
+    "keywords": ["钉钉开发组件", "钉钉", "钉钉Hyperf", "Hyperf钉钉组件", "hyperf"],
+    "homepage": "http://www.firstphp.com/",
+    "license": "MIT",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "狂奔的蚂蚁",
+            "email": "firstphp@firstphp.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Firstphp\\Dingtalk\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "HyperfTest\\": "tests"
+        }
+    },
+    "require": {
+        "php": ">=7.2"
+    },
+    "require-dev": {
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+    },
+    "extra": {
+        "hyperf": {
+            "config": "Firstphp\\Dingtalk\\ConfigProvider"
+        }
+    }
+}
