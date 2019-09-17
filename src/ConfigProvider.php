@@ -11,6 +11,8 @@ declare(strict_types=1);
  */
 
 namespace Firstphp\Dingtalk;
+use Firstphp\Dingtalk\DingtalkInterface;
+use Firstphp\Dingtalk\Facades\DingtalkFactory;
 
 class ConfigProvider
 {
@@ -18,6 +20,7 @@ class ConfigProvider
     {
         return [
             'dependencies' => [
+                DingtalkInterface::class => DingtalkFactory::class
             ],
             'commands' => [
             ],
