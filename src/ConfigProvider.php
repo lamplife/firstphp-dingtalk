@@ -29,6 +29,14 @@ class ConfigProvider
                     __DIR__,
                 ],
             ],
+            'publish' => [
+                [
+                    'id' => 'config',
+                    'description' => 'The config for firstphp-dingtalk.',
+                    'source' => __DIR__ . '/../publish/dingtalk.php',
+                    'destination' => BASE_PATH . '/config/autoload/dingtalk.php',
+                ],
+            ],
         ];
     }
 }

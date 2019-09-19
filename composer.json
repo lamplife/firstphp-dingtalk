@@ -5,7 +5,7 @@
     "keywords": ["钉钉开发组件", "钉钉", "钉钉Hyperf", "Hyperf钉钉组件", "hyperf"],
     "homepage": "http://www.firstphp.com/",
     "license": "MIT",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "authors": [
         {
             "name": "狂奔的蚂蚁",
