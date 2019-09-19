@@ -9,6 +9,10 @@
 
 发布配置:
 
+    php bin/hyperf.php vendor:publish firstphp/dingtalk
+
+    或
+    
 	cp vendor/firstphp/dingtalk/src/publish/dingtalk.php config/autoload
 
 
