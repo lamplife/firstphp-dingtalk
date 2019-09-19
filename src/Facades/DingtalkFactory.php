@@ -10,7 +10,7 @@ declare(strict_types = 1);
 
 namespace Firstphp\Dingtalk\Facades;
 
-use Firstphp\Dingtalk\DingtalkServer;
+use Firstphp\Dingtalk\DingtalkClient;
 use Hyperf\Contract\ConfigInterface;
 use Psr\Container\ContainerInterface;
 
@@ -23,12 +23,11 @@ class DingtalkFactory
      */
     protected $container;
 
-
     public function __invoke(ContainerInterface $container)
     {
         $contents = $container->get(ConfigInterface::class);
         $config = $contents->get("dingtalk");
-        return $container->make(DingtalkServer::class, compact('config'));
+        return $container->make(DingtalkClient::class, compact('config'));
     }
 
 }

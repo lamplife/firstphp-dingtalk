@@ -11,8 +11,9 @@ declare(strict_types = 1);
 namespace Firstphp\Dingtalk;
 
 use Firstphp\Dingtalk\Bridge\Http;
+use Psr\Container\ContainerInterface;
 
-class DingtalkServer implements DingtalkInterface
+class DingtalkClient implements DingtalkInterface
 {
 
     /**
@@ -41,15 +42,24 @@ class DingtalkServer implements DingtalkInterface
     protected $http;
 
 
-    public function __construct(array $config = [])
+    /**
+     * @var ContainerInterface
+     */
+    protected $container;
+
+
+    public function __construct(array $config = [], ContainerInterface $container)
     {
         $config = $config ? $config : config('dingtalk');
+
         if ($config) {
             $this->url = $config['url'];
             $this->appid = $config['appid'];
             $this->appsecret = $config['appsecret'];
         }
-        $this->http = new Http($this->url);
+
+        $this->http = $container->make(Http::class, compact('config'));
+
     }
 
 

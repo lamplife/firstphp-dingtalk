@@ -1,15 +1,18 @@
 <?php
+
+declare(strict_types = 1);
+
 /**
  * Created by PhpStorm.
  * User: 狂奔的螞蟻 <www.firstphp.com>
  * Date: 2019/9/17
  * Time: 下午16:28
  */
-declare(strict_types = 1);
 
 namespace Firstphp\Dingtalk\Bridge;
 
-use GuzzleHttp\Client;
+use Hyperf\Guzzle\ClientFactory;
+
 
 class Http
 {
@@ -23,13 +26,15 @@ class Http
     protected $client;
 
 
-    public function __construct(string $baseUri = '')
+    public function __construct(array $config = [], ClientFactory $clientFactory)
     {
-        $this->client = new Client([
-            'base_uri' => $baseUri ? $baseUri : static::BASE_URI,
+        $baseUri = isset($config['url']) && $config['url'] ? $config['url'] : static::BASE_URI;
+        $options = [
+            'base_uri' => $baseUri,
             'timeout' => 200,
             'verify' => false,
-        ]);
+        ];
+        $this->client = $clientFactory->create($options);
     }
 
 
